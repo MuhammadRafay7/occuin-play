@@ -12,28 +12,12 @@ export interface EmbedProvider {
 
 export const PROVIDERS: EmbedProvider[] = [
   {
-    id: 'vidsrc',
+    id: 'vidlink',
     name: 'Server 1',
     build: ({ tmdbId, type, season, episode }) =>
       type === 'tv'
-        ? `https://vidsrc.me/embed/tv?tmdb=${tmdbId}&season=${season}&episode=${episode}`
-        : `https://vidsrc.me/embed/movie?tmdb=${tmdbId}`,
-  },
-  {
-    id: 'vidlink',
-    name: 'Server 2',
-    build: ({ tmdbId, type, season, episode }) =>
-      type === 'tv'
-        ? `https://vidlink.pro/embed/tv/${tmdbId}/${season}/${episode}`
-        : `https://vidlink.pro/embed/movie/${tmdbId}`,
-  },
-  {
-    id: 'autoembed',
-    name: 'Server 3',
-    build: ({ tmdbId, type, season, episode }) =>
-      type === 'tv'
-        ? `https://player.autoembed.cc/embed/tv/${tmdbId}/${season}/${episode}`
-        : `https://player.autoembed.cc/embed/movie/${tmdbId}`,
+        ? `https://vidlink.pro/tv/${tmdbId}/${season}/${episode}`
+        : `https://vidlink.pro/movie/${tmdbId}`,
   },
 ];
 
@@ -80,7 +64,7 @@ export default function Player({
           className="h-full w-full border-0"
           allowFullScreen
           referrerPolicy="origin"
-          sandbox="allow-scripts allow-same-origin allow-forms allow-presentation allow-fullscreen"
+          allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
         />
       </div>
 
@@ -90,7 +74,7 @@ export default function Player({
             <MonitorPlay className="h-3.5 w-3.5" />
             Source
           </span>
-          {PROVIDERS.map((p) => (
+          {PROVIDERS.length > 1 && PROVIDERS.map((p) => (
             <button
               key={p.id}
               onClick={() => setProviderId(p.id)}

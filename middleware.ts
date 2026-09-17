@@ -1,5 +1,5 @@
 import { NextResponse, type NextRequest } from 'next/server';
-import { createServerClient, type CookieOptions } from '@supabase/ssr';
+import type { CookieOptions } from '@supabase/ssr';
 
 export async function middleware(request: NextRequest) {
   let response = NextResponse.next({ request });
@@ -9,6 +9,8 @@ export async function middleware(request: NextRequest) {
   if (!url || !anonKey) return response;
 
   try {
+    const { createServerClient } = await import('@supabase/ssr');
+
     const supabase = createServerClient(url, anonKey, {
       cookies: {
         getAll() {
@@ -29,6 +31,7 @@ export async function middleware(request: NextRequest) {
     await supabase.auth.getUser();
   } catch (error) {
     console.error('supabase session refresh failed', error);
+    return response;
   }
 
   return response;
