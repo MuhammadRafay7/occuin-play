@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import WatchClient from '@/components/WatchClient';
 import { fetchTitleDetails } from '@/lib/tmdb';
+import { embedFallbackEnabled, getDirectSources, sourceKey } from '@/lib/directSource';
 import { TmdbError, titleOf, type MediaType } from '@/lib/types';
 
 interface PageProps {
@@ -41,9 +42,18 @@ export default async function WatchPage({ params }: PageProps) {
     throw error;
   }
 
+  const directSources = getDirectSources(mediaType, id);
+
   return (
     <main className="mx-auto min-h-screen max-w-7xl p-4 sm:p-8">
-      <WatchClient type={mediaType} id={id} details={details} />
+      <WatchClient
+        type={mediaType}
+        id={id}
+        details={details}
+        directSources={directSources}
+        allowEmbed={embedFallbackEnabled()}
+        directSrc={mediaType === 'movie' ? directSources[sourceKey('movie', id)] : undefined}
+      />
     </main>
   );
 }

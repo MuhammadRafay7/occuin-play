@@ -32,9 +32,18 @@ interface WatchClientProps {
   id: string;
   details: TitleDetails;
   directSrc?: string;
+  directSources?: Record<string, string>;
+  allowEmbed?: boolean;
 }
 
-export default function WatchClient({ type, id, details, directSrc }: WatchClientProps) {
+export default function WatchClient({
+  type,
+  id,
+  details,
+  directSrc,
+  directSources,
+  allowEmbed = true,
+}: WatchClientProps) {
   const seasons = useMemo(() => {
     const all = details.seasons ?? [];
     const numbered = all.filter((s) => s.season_number > 0);
@@ -55,6 +64,11 @@ export default function WatchClient({ type, id, details, directSrc }: WatchClien
   const [currentTime, setCurrentTime] = useState(0);
   const [markers, setMarkers] = useState<TimelineMarker[]>([]);
   const [controller, setController] = useState<PlayerController | null>(null);
+
+  const activeSrc = useMemo(() => {
+    if (type === 'movie') return directSrc ?? directSources?.[`movie:${id}`];
+    return directSources?.[`tv:${id}:${season}:${episode}`] ?? directSrc;
+  }, [type, id, season, episode, directSrc, directSources]);
 
   const { preferences, update: updatePreferences } = usePreferences();
   const { record } = useWatchProgress();
@@ -185,7 +199,7 @@ export default function WatchClient({ type, id, details, directSrc }: WatchClien
       prevEpisode: () => hasPrevEpisode && handlePrevEpisode(),
       help: () => setKeymapOpen((v) => !v),
     },
-    !directSrc && !keymapOpen
+    !activeSrc && !keymapOpen
   );
 
   const handleCommentsLoaded = useCallback((comments: TimelineComment[]) => {
@@ -253,9 +267,9 @@ export default function WatchClient({ type, id, details, directSrc }: WatchClien
         </div>
       </div>
 
-      {directSrc ? (
+      {activeSrc ? (
         <VideoPlayer
-          src={directSrc}
+          src={activeSrc}
           mediaType={type}
           tmdbId={id}
           season={type === 'tv' ? season : 0}
@@ -279,6 +293,14 @@ export default function WatchClient({ type, id, details, directSrc }: WatchClien
               : undefined
           }
         />
+      ) : !allowEmbed ? (
+        <div className="flex aspect-video w-full flex-col items-center justify-center gap-2 rounded-2xl border border-zinc-800 bg-zinc-950 p-6 text-center">
+          <MonitorPlay className="h-8 w-8 text-zinc-600" />
+          <p className="text-sm font-semibold text-zinc-300">No source available for this title</p>
+          <p className="max-w-md text-xs leading-relaxed text-zinc-500">
+            Third-party embeds are disabled. Add a direct video source to play this title.
+          </p>
+        </div>
       ) : (
         <>
           <Player
@@ -302,7 +324,7 @@ export default function WatchClient({ type, id, details, directSrc }: WatchClien
       )}
 
       <div className="grid gap-4 lg:grid-cols-2">
-        <WatchParty controller={directSrc ? controller : null} />
+        <WatchParty controller={activeSrc ? controller : null} />
         <TimelineComments
           mediaType={type}
           tmdbId={id}

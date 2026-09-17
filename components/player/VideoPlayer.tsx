@@ -195,14 +195,15 @@ export default function VideoPlayer({
     setQualityLevels([]);
 
     const isHls = src.includes('.m3u8');
-    if (!isHls || video.canPlayType('application/vnd.apple.mpegurl')) {
+    if (!isHls) {
       video.src = src;
       return;
     }
 
     let destroyed = false;
     import('hls.js').then(({ default: Hls }) => {
-      if (destroyed || !Hls.isSupported()) {
+      if (destroyed) return;
+      if (!Hls.isSupported()) {
         video.src = src;
         return;
       }
