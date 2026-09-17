@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --surface-base: #09090b;
+  --surface-card: #18181b;
+  --surface-raised: #27272a;
+  --accent: #e11d48;
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-[#09090b] text-zinc-50 antialiased;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+
+  ::selection {
+    @apply bg-rose-600/30 text-white;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-rose-600 ring-offset-2 ring-offset-[#09090b];
+  }
+}
+
+@layer utilities {
+  .surface-card {
+    @apply border border-zinc-800 bg-[#18181b];
+  }
+
+  .glass {
+    @apply border border-zinc-800/80 bg-[#18181b]/70 backdrop-blur-md;
+  }
+
+  .glass-dark {
+    @apply border border-white/10 bg-black/60 backdrop-blur-md;
+  }
+
+  .fade-to-base {
+    background-image: linear-gradient(
+      to top,
+      #09090b 0%,
+      rgba(9, 9, 11, 0.85) 25%,
+      rgba(9, 9, 11, 0.4) 55%,
+      rgba(9, 9, 11, 0) 100%
+    );
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.zinc.700') transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-zinc-700;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-zinc-600;
+  }
+}
