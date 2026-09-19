@@ -155,7 +155,7 @@ export default function TimelineComments({
       </div>
 
       <h3 className="flex items-center gap-2 text-sm font-bold text-white">
-        <MessageSquare className="h-4 w-4 text-rose-500" />
+        <MessageSquare className="h-4 w-4 text-emerald-400" />
         Timeline comments
         <span className="ml-auto font-mono text-[11px] text-zinc-500">{comments.length}</span>
       </h3>
@@ -207,13 +207,13 @@ export default function TimelineComments({
             if (e.key === 'Enter') void submit();
           }}
           placeholder={`Comment at ${formatTime(currentTime)}…`}
-          className="min-w-0 flex-1 rounded-lg border border-zinc-700 bg-zinc-800 px-3 py-2 text-xs text-white placeholder:text-zinc-500 focus:border-rose-600 focus:outline-none"
+          className="min-w-0 flex-1 rounded-lg border border-zinc-700 bg-zinc-800 px-3 py-2 text-xs text-white placeholder:text-zinc-500 focus:border-emerald-500 focus:outline-none"
         />
         <button
           onClick={() => void submit()}
           disabled={!body.trim()}
           aria-label="Post comment"
-          className="rounded-lg bg-rose-600 p-2 text-white transition-colors hover:bg-rose-500 disabled:opacity-40"
+          className="rounded-lg bg-emerald-500 p-2 text-white transition-colors hover:bg-emerald-400 disabled:opacity-40"
         >
           <Send className="h-3.5 w-3.5" />
         </button>

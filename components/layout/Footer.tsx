@@ -38,16 +38,16 @@ const SOCIALS = [
 
 export default function Footer() {
   return (
-    <footer className="mt-16 border-t border-zinc-800/80 bg-[#09090b]">
+    <footer className="mt-16 border-t border-white/10 bg-[#04120b]">
       <div className="mx-auto max-w-[1600px] px-4 py-10 sm:px-6">
         <div className="flex flex-col gap-8 md:flex-row md:justify-between">
           <div className="max-w-sm space-y-3">
             <Link href="/" className="flex items-center gap-2">
-              <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-rose-600 text-xs font-black text-white">
+              <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-white text-xs font-black text-[#04120b]">
                 O
               </span>
               <span className="text-sm font-extrabold tracking-tight text-white">
-                OCCUIN <span className="text-rose-500">PLAY</span>
+                OCCUIN <span className="text-emerald-400">PLAY</span>
               </span>
             </Link>
             <p className="text-xs leading-relaxed text-zinc-500">
@@ -61,7 +61,7 @@ export default function Footer() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-xs text-zinc-400 transition-colors hover:text-white"
+                className="text-[13px] text-zinc-400 transition-colors hover:text-white"
               >
                 {link.label}
               </Link>
@@ -69,7 +69,7 @@ export default function Footer() {
           </nav>
         </div>
 
-        <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-zinc-800/80 pt-6 sm:flex-row">
+        <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 sm:flex-row">
           <p className="text-[11px] text-zinc-600">
             © {new Date().getFullYear()} Occuin Play. All rights reserved.
           </p>
@@ -82,7 +82,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className="rounded-lg border border-zinc-800 p-2 text-zinc-400 transition-colors hover:border-rose-600/50 hover:text-white"
+                className="rounded-full border border-white/10 bg-black/40 p-2.5 text-zinc-400 backdrop-blur-xl transition-colors hover:border-emerald-400/50 hover:text-white"
               >
                 <Icon className="h-3.5 w-3.5" />
               </a>

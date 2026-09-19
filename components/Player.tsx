@@ -53,7 +53,7 @@ export default function Player({
       <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-zinc-800 bg-black shadow-2xl">
         {loading && (
           <div className="absolute inset-0 z-10 flex items-center justify-center bg-zinc-950">
-            <Loader2 className="h-8 w-8 animate-spin text-rose-600" />
+            <Loader2 className="h-8 w-8 animate-spin text-emerald-500" />
           </div>
         )}
         <iframe
@@ -81,7 +81,7 @@ export default function Player({
               aria-pressed={providerId === p.id}
               className={`rounded px-3 py-1.5 text-xs font-semibold transition-colors ${
                 providerId === p.id
-                  ? 'bg-rose-600 text-white'
+                  ? 'bg-emerald-500 text-white'
                   : 'bg-zinc-800 text-zinc-300 hover:bg-zinc-700'
               }`}
             >

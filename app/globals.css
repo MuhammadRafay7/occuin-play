@@ -3,10 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --surface-base: #09090b;
-  --surface-card: #18181b;
-  --surface-raised: #27272a;
-  --accent: #e11d48;
+  --surface-base: #04120b;
+  --surface-card: #0a1f14;
+  --surface-raised: #12301f;
+  --surface-edge: #1b4430;
+  --accent: #34d399;
 }
 
 @layer base {
@@ -15,26 +16,26 @@
   }
 
   body {
-    @apply bg-[#09090b] text-zinc-50 antialiased;
+    @apply bg-[#04120b] text-zinc-50 antialiased;
     font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
   }
 
   ::selection {
-    @apply bg-rose-600/30 text-white;
+    @apply bg-emerald-400/30 text-white;
   }
 
   :focus-visible {
-    @apply outline-none ring-2 ring-rose-600 ring-offset-2 ring-offset-[#09090b];
+    @apply outline-none ring-2 ring-emerald-400 ring-offset-2 ring-offset-[#04120b];
   }
 }
 
 @layer utilities {
   .surface-card {
-    @apply border border-zinc-800 bg-[#18181b];
+    @apply border border-emerald-950/60 bg-[#0a1f14];
   }
 
   .glass {
-    @apply border border-zinc-800/80 bg-[#18181b]/70 backdrop-blur-md;
+    @apply border border-emerald-950/50 bg-[#0a1f14]/70 backdrop-blur-md;
   }
 
   .glass-dark {
@@ -44,7 +45,7 @@
   .fade-to-base {
     background-image: linear-gradient(
       to top,
-      #09090b 0%,
+      #04120b 0%,
       rgba(9, 9, 11, 0.85) 25%,
       rgba(9, 9, 11, 0.4) 55%,
       rgba(9, 9, 11, 0) 100%

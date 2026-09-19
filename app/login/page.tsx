@@ -71,12 +71,12 @@ export default function LoginPage() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="you@example.com"
-            className="w-full rounded-xl border border-zinc-800 bg-zinc-900 px-4 py-3 text-sm text-white transition-all placeholder:text-zinc-500 focus:border-rose-600 focus:outline-none focus:ring-1 focus:ring-rose-600"
+            className="w-full rounded-xl border border-zinc-800 bg-zinc-900 px-4 py-3 text-sm text-white transition-all placeholder:text-zinc-500 focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
           />
           <button
             type="submit"
             disabled={status === 'sending'}
-            className="flex w-full items-center justify-center gap-2 rounded-xl bg-rose-600 px-5 py-3 text-xs font-semibold text-white transition-colors hover:bg-rose-500 disabled:opacity-60"
+            className="flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-500 px-5 py-3 text-xs font-semibold text-white transition-colors hover:bg-emerald-400 disabled:opacity-60"
           >
             {status === 'sending' ? (
               <Loader2 className="h-4 w-4 animate-spin" />
@@ -85,7 +85,7 @@ export default function LoginPage() {
             )}
             Send sign-in link
           </button>
-          {error && <p className="text-xs text-rose-400">{error}</p>}
+          {error && <p className="text-xs text-emerald-300">{error}</p>}
         </form>
       )}
     </main>

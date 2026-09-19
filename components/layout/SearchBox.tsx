@@ -83,10 +83,10 @@ export default function SearchBox() {
         }}
         placeholder="Search titles…"
         aria-label="Search titles"
-        className="w-full rounded-full border border-zinc-800 bg-[#18181b]/70 py-2 pl-9 pr-8 text-xs text-white backdrop-blur-md transition-all placeholder:text-zinc-500 focus:border-rose-600/60 focus:bg-[#18181b]"
+        className="w-full rounded-full border border-zinc-800 bg-[#0a1f14]/70 py-2 pl-9 pr-8 text-xs text-white backdrop-blur-md transition-all placeholder:text-zinc-500 focus:border-emerald-500/60 focus:bg-[#0a1f14]"
       />
       {loading && (
-        <Loader2 className="absolute right-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 animate-spin text-rose-500" />
+        <Loader2 className="absolute right-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 animate-spin text-emerald-400" />
       )}
       {!loading && query && (
         <button
@@ -102,7 +102,7 @@ export default function SearchBox() {
       )}
 
       {showDropdown && (
-        <div className="absolute left-0 right-0 top-full z-50 mt-2 max-h-96 overflow-y-auto rounded-xl border border-zinc-800 bg-[#18181b]/95 p-1.5 shadow-2xl backdrop-blur-md custom-scrollbar">
+        <div className="absolute left-0 right-0 top-full z-50 mt-2 max-h-96 overflow-y-auto rounded-xl border border-zinc-800 bg-[#0a1f14]/95 p-1.5 shadow-2xl backdrop-blur-md custom-scrollbar">
           {results.length === 0 && !loading ? (
             <p className="px-3 py-4 text-center text-xs text-zinc-500">No matches found.</p>
           ) : (

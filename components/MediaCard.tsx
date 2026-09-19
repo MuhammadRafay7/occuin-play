@@ -35,9 +35,9 @@ export default function MediaCard({ item, type, showProgress = true }: MediaCard
     <div className="group/card relative">
       <Link
         href={href}
-        className="block overflow-hidden rounded-xl border border-zinc-800/80 bg-[#18181b] transition-all duration-300 group-hover/card:border-zinc-700 group-hover/card:shadow-2xl group-hover/card:shadow-black/60"
+        className="block overflow-hidden rounded-xl border border-zinc-800/80 bg-[#0a1f14] transition-all duration-300 group-hover/card:border-zinc-700 group-hover/card:shadow-2xl group-hover/card:shadow-black/60"
       >
-        <div className="relative aspect-[2/3] w-full overflow-hidden bg-[#09090b]">
+        <div className="relative aspect-[2/3] w-full overflow-hidden bg-[#04120b]">
           {item.poster_path ? (
             <Image
               src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
@@ -67,7 +67,7 @@ export default function MediaCard({ item, type, showProgress = true }: MediaCard
                   router.push(href);
                 }}
                 aria-label={`Play ${title}`}
-                className="flex h-8 w-8 items-center justify-center rounded-full bg-rose-600 text-white shadow-lg transition-transform hover:scale-110"
+                className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-500 text-white shadow-lg transition-transform hover:scale-110"
               >
                 <Play className="ml-0.5 h-3.5 w-3.5 fill-white" />
               </button>
@@ -91,7 +91,7 @@ export default function MediaCard({ item, type, showProgress = true }: MediaCard
                 aria-label={liked ? `Unlike ${title}` : `Like ${title}`}
                 className="flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-black/60 text-white backdrop-blur-md transition-transform hover:scale-110"
               >
-                <Heart className={`h-3.5 w-3.5 ${liked ? 'fill-rose-500 text-rose-500' : ''}`} />
+                <Heart className={`h-3.5 w-3.5 ${liked ? 'fill-emerald-400 text-emerald-400' : ''}`} />
               </button>
             </div>
           </div>
@@ -99,7 +99,7 @@ export default function MediaCard({ item, type, showProgress = true }: MediaCard
           {showProgress && percent > 0 && (
             <div className="absolute inset-x-0 bottom-0 h-1 bg-black/70">
               <div
-                className={`h-full ${completed ? 'bg-emerald-500' : 'bg-rose-600'}`}
+                className={`h-full ${completed ? 'bg-emerald-500' : 'bg-emerald-500'}`}
                 style={{ width: `${percent}%` }}
               />
             </div>

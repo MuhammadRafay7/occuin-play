@@ -128,7 +128,7 @@ export default function SeekBar({
       >
         <div className="absolute inset-x-0 top-1/2 h-1 -translate-y-1/2 overflow-hidden rounded-full bg-white/25 transition-all group-hover/seek:h-1.5">
           <div className="absolute inset-y-0 left-0 bg-white/30" style={{ width: `${bufferedRatio * 100}%` }} />
-          <div className="absolute inset-y-0 left-0 bg-rose-600" style={{ width: `${progressRatio * 100}%` }} />
+          <div className="absolute inset-y-0 left-0 bg-emerald-500" style={{ width: `${progressRatio * 100}%` }} />
 
           {duration > 0 &&
             skipRanges.map((range) => (
@@ -154,7 +154,7 @@ export default function SeekBar({
           ))}
 
         <div
-          className="pointer-events-none absolute top-1/2 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-rose-600 opacity-0 shadow transition-opacity group-hover/seek:opacity-100"
+          className="pointer-events-none absolute top-1/2 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-500 opacity-0 shadow transition-opacity group-hover/seek:opacity-100"
           style={{ left: `${progressRatio * 100}%` }}
         />
       </div>

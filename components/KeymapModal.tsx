@@ -62,7 +62,7 @@ export default function KeymapModal({ preferences, onUpdate, onClose }: KeymapMo
       >
         <div className="mb-4 flex items-center justify-between">
           <h2 className="flex items-center gap-2 text-lg font-bold text-white">
-            <Keyboard className="h-4 w-4 text-rose-500" />
+            <Keyboard className="h-4 w-4 text-emerald-400" />
             Keyboard shortcuts
           </h2>
           <div className="flex items-center gap-2">
@@ -95,7 +95,7 @@ export default function KeymapModal({ preferences, onUpdate, onClose }: KeymapMo
                 onKeyDown={rebinding === action ? captureKey(action) : undefined}
                 className={`min-w-[80px] rounded border px-2 py-1 text-center font-mono text-[11px] transition-colors ${
                   rebinding === action
-                    ? 'border-rose-600 bg-rose-950/40 text-rose-300'
+                    ? 'border-emerald-500 bg-emerald-950/40 text-emerald-200'
                     : 'border-zinc-700 bg-zinc-800 text-zinc-200 hover:border-zinc-600'
                 }`}
               >

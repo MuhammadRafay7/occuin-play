@@ -14,7 +14,7 @@ export default function ContinueWatchingRail() {
   return (
     <section className="space-y-3">
       <div className="flex items-center gap-2 px-4 sm:px-6">
-        <History className="h-4 w-4 text-rose-500" />
+        <History className="h-4 w-4 text-emerald-400" />
         <h2 className="text-base font-bold tracking-tight text-white sm:text-lg">Continue Watching</h2>
       </div>
 
@@ -30,9 +30,9 @@ export default function ContinueWatchingRail() {
             >
               <Link
                 href={href}
-                className="block overflow-hidden rounded-xl border border-zinc-800/80 bg-[#18181b] transition-all group-hover/cw:border-zinc-700"
+                className="block overflow-hidden rounded-xl border border-zinc-800/80 bg-[#0a1f14] transition-all group-hover/cw:border-zinc-700"
               >
-                <div className="relative aspect-video bg-[#09090b]">
+                <div className="relative aspect-video bg-[#04120b]">
                   {entry.posterPath ? (
                     <Image
                       src={`https://image.tmdb.org/t/p/w500${entry.posterPath}`}
@@ -48,13 +48,13 @@ export default function ContinueWatchingRail() {
                   )}
 
                   <div className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 backdrop-blur-[2px] transition-opacity group-hover/cw:opacity-100">
-                    <span className="flex h-11 w-11 items-center justify-center rounded-full bg-rose-600 shadow-lg">
+                    <span className="flex h-11 w-11 items-center justify-center rounded-full bg-emerald-500 shadow-lg">
                       <Play className="ml-0.5 h-5 w-5 fill-white text-white" />
                     </span>
                   </div>
 
                   <div className="absolute inset-x-0 bottom-0 h-1 bg-black/70">
-                    <div className="h-full bg-rose-600" style={{ width: `${percent}%` }} />
+                    <div className="h-full bg-emerald-500" style={{ width: `${percent}%` }} />
                   </div>
                 </div>
 

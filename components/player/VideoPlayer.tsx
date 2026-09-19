@@ -523,7 +523,7 @@ export default function VideoPlayer({
 
       {showResumePrompt && (
         <div className="absolute inset-0 z-40 flex flex-col items-center justify-center bg-black/80 p-6 text-center backdrop-blur-md">
-          <p className="mb-1 font-mono text-xs uppercase tracking-widest text-rose-500">Continue watching</p>
+          <p className="mb-1 font-mono text-xs uppercase tracking-widest text-emerald-400">Continue watching</p>
           <h3 className="mb-6 text-lg font-bold text-white">
             Resume from {new Date(savedTime * 1000).toISOString().substring(11, 19)}?
           </h3>
@@ -534,7 +534,7 @@ export default function VideoPlayer({
                 void videoRef.current?.play().catch(() => undefined);
                 setShowResumePrompt(false);
               }}
-              className="flex items-center gap-2 rounded-xl bg-rose-600 px-5 py-2.5 text-xs font-semibold text-white transition-colors hover:bg-rose-500"
+              className="flex items-center gap-2 rounded-xl bg-emerald-500 px-5 py-2.5 text-xs font-semibold text-white transition-colors hover:bg-emerald-400"
             >
               <Play className="h-4 w-4 fill-white" />
               Resume

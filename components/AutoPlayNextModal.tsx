@@ -37,7 +37,7 @@ export default function AutoPlayNextModal({
             cx="30"
             cy="30"
             r={radius}
-            className="stroke-rose-600 transition-all duration-1000 ease-linear"
+            className="stroke-emerald-500 transition-all duration-1000 ease-linear"
             strokeWidth="4"
             strokeDasharray={circumference}
             strokeDashoffset={strokeDashoffset}
@@ -49,7 +49,7 @@ export default function AutoPlayNextModal({
       </div>
 
       <div className="min-w-0 flex-1 space-y-1">
-        <p className="font-mono text-[10px] font-bold uppercase tracking-wider text-rose-500">Up Next</p>
+        <p className="font-mono text-[10px] font-bold uppercase tracking-wider text-emerald-400">Up Next</p>
         <h4 className="truncate text-sm font-semibold text-white">
           Episode {nextEpisodeNumber}
           {nextEpisodeTitle ? `: ${nextEpisodeTitle}` : ''}
@@ -60,7 +60,7 @@ export default function AutoPlayNextModal({
       <div className="flex shrink-0 flex-col gap-1.5">
         <button
           onClick={onPlayNow}
-          className="rounded-xl bg-rose-600 p-2 text-white shadow-md shadow-rose-950/40 transition-all hover:bg-rose-500"
+          className="rounded-xl bg-emerald-500 p-2 text-white shadow-md shadow-emerald-950/40 transition-all hover:bg-emerald-400"
           title="Play next now"
           aria-label="Play next episode now"
         >

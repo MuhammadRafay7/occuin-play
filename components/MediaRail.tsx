@@ -83,7 +83,7 @@ export default function MediaRail({ title, items, type, loading = false, icon }:
                   key={i}
                   className="w-[140px] shrink-0 sm:w-[160px] lg:w-[180px]"
                 >
-                  <div className="aspect-[2/3] animate-pulse rounded-xl border border-zinc-800 bg-[#18181b]" />
+                  <div className="aspect-[2/3] animate-pulse rounded-xl border border-zinc-800 bg-[#0a1f14]" />
                 </div>
               ))
             : items.map((item) => (

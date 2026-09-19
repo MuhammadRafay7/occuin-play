@@ -26,9 +26,9 @@ export default function EpisodeCard({
     <button
       onClick={onSelect}
       aria-current={isActive}
-      className={`group relative flex gap-3 rounded-xl border p-3 text-left transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-600 ${
+      className={`group relative flex gap-3 rounded-xl border p-3 text-left transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 ${
         isActive
-          ? 'border-rose-600/80 bg-rose-950/30 shadow-lg shadow-rose-950/30'
+          ? 'border-emerald-500/80 bg-emerald-950/30 shadow-lg shadow-emerald-950/30'
           : 'border-zinc-800 bg-zinc-900/80 hover:border-zinc-700 hover:bg-zinc-800/60'
       }`}
     >
@@ -52,7 +52,7 @@ export default function EpisodeCard({
             isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
           }`}
         >
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-rose-600 text-white shadow-md">
+          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-500 text-white shadow-md">
             <Play className="ml-0.5 h-4 w-4 fill-white" />
           </div>
         </div>
@@ -67,7 +67,7 @@ export default function EpisodeCard({
         {percent > 0 && (
           <div className="absolute inset-x-0 bottom-0 h-1.5 bg-zinc-950/80">
             <div
-              className={`h-full transition-all duration-300 ${completed ? 'bg-emerald-500' : 'bg-rose-600'}`}
+              className={`h-full transition-all duration-300 ${completed ? 'bg-emerald-500' : 'bg-emerald-500'}`}
               style={{ width: `${percent}%` }}
             />
           </div>
@@ -77,7 +77,7 @@ export default function EpisodeCard({
       <div className="flex min-w-0 flex-1 flex-col justify-between py-0.5">
         <div className="space-y-1">
           <div className="flex items-center justify-between gap-2">
-            <span className="font-mono text-xs font-bold text-rose-500">EP {episode.episode_number}</span>
+            <span className="font-mono text-xs font-bold text-emerald-400">EP {episode.episode_number}</span>
             {episode.vote_average > 0 && (
               <div className="flex items-center gap-1 text-[11px] font-semibold text-yellow-400">
                 <Star className="h-3 w-3 fill-yellow-400" />
@@ -87,7 +87,7 @@ export default function EpisodeCard({
           </div>
           <h3
             className={`truncate text-sm font-semibold transition-colors ${
-              isActive ? 'text-rose-400' : 'text-zinc-100 group-hover:text-white'
+              isActive ? 'text-emerald-300' : 'text-zinc-100 group-hover:text-white'
             }`}
           >
             {episode.name}

@@ -14,9 +14,10 @@ const config: Config = {
         mono: ['var(--font-mono)', 'ui-monospace', 'monospace'],
       },
       colors: {
-        base: '#09090b',
-        card: '#18181b',
-        raised: '#27272a',
+        base: '#04120b',
+        card: '#0a1f14',
+        raised: '#12301f',
+        edge: '#1b4430',
       },
       keyframes: {
         'fade-in': {

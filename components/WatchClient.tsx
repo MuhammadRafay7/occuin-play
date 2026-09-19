@@ -17,6 +17,10 @@ import KeymapModal from '@/components/KeymapModal';
 import Player from '@/components/Player';
 import SeasonSelector from '@/components/SeasonSelector';
 import TimelineComments, { type TimelineComment } from '@/components/TimelineComments';
+import CastRail from '@/components/detail/CastRail';
+import InfoPanel from '@/components/detail/InfoPanel';
+import TrailerRail from '@/components/detail/TrailerRail';
+import MediaRail from '@/components/MediaRail';
 import VideoPlayer, { type PlayerController } from '@/components/player/VideoPlayer';
 import WatchParty from '@/components/WatchParty';
 import type { TimelineMarker } from '@/components/player/SeekBar';
@@ -78,6 +82,20 @@ export default function WatchClient({
   seasonsRef.current = seasons;
 
   const title = details.title || details.name || 'Untitled';
+
+  const genreNames = (details.genres ?? []).map((g) => g.name);
+  const cast = details.credits?.cast ?? [];
+  const trailers = details.videos?.results ?? [];
+  const recommendations = details.recommendations?.results ?? [];
+  const director =
+    details.credits?.crew?.find((c) => c.job === 'Director')?.name ??
+    details.credits?.crew?.find((c) => c.department === 'Directing')?.name ??
+    null;
+  const releaseYear = (details.release_date ?? details.first_air_date ?? '').slice(0, 4);
+  const runtimeMinutes = details.runtime ?? details.episode_run_time?.[0] ?? null;
+  const runtimeText = runtimeMinutes
+    ? `${Math.floor(runtimeMinutes / 60)}h ${runtimeMinutes % 60}m`
+    : null;
 
   useEffect(() => {
     if (type !== 'tv') return;
@@ -319,9 +337,49 @@ export default function WatchClient({
         </>
       )}
 
-      {details.overview && (
-        <p className="max-w-3xl text-sm leading-relaxed text-zinc-400">{details.overview}</p>
-      )}
+      <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
+        <div className="max-w-3xl flex-1 space-y-4">
+          {genreNames.length > 0 && (
+            <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-sm font-medium text-zinc-200">
+              {genreNames.map((genre, i) => (
+                <span key={genre} className="flex items-center gap-2.5">
+                  {i > 0 && <span className="text-zinc-600">•</span>}
+                  {genre}
+                </span>
+              ))}
+            </div>
+          )}
+
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-zinc-300">
+            <span className="font-mono">{releaseYear}</span>
+            {runtimeText && <span className="font-mono">{runtimeText}</span>}
+            {details.vote_average > 0 && (
+              <span className="flex items-center gap-1.5 font-semibold text-white">
+                <Star className="h-3.5 w-3.5 fill-white" />
+                {details.vote_average.toFixed(1)}
+              </span>
+            )}
+            {typeof details.vote_count === 'number' && details.vote_count > 0 && (
+              <span className="text-zinc-500">{details.vote_count.toLocaleString()} votes</span>
+            )}
+          </div>
+
+          {director && (
+            <p className="text-sm text-zinc-400">
+              Director: <span className="font-medium text-zinc-200">{director}</span>
+            </p>
+          )}
+
+          {details.overview && (
+            <p className="text-sm leading-relaxed text-zinc-400">{details.overview}</p>
+          )}
+        </div>
+
+        <InfoPanel details={details} />
+      </div>
+
+      {cast.length > 0 && <CastRail cast={cast} />}
+      {trailers.length > 0 && <TrailerRail videos={trailers} />}
 
       <div className="grid gap-4 lg:grid-cols-2">
         <WatchParty controller={activeSrc ? controller : null} />
@@ -367,6 +425,12 @@ export default function WatchClient({
             onSeasonChange={setSelectedSeason}
             onSelectEpisode={goToEpisode}
           />
+        </div>
+      )}
+
+      {recommendations.length > 0 && (
+        <div className="-mx-4 sm:-mx-6">
+          <MediaRail title="You Might Also Like" items={recommendations} type={type} />
         </div>
       )}
 

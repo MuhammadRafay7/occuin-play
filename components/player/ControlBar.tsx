@@ -106,7 +106,7 @@ export default function ControlBar({
       aria-label={label}
       title={label}
       className={`rounded-lg p-1.5 transition-colors disabled:opacity-30 ${
-        active ? 'text-rose-500' : 'text-white hover:text-rose-400'
+        active ? 'text-emerald-400' : 'text-white hover:text-emerald-300'
       }`}
     >
       <Icon className="h-5 w-5" />
@@ -134,7 +134,7 @@ export default function ControlBar({
           onClick={() => onNudge(-skipInterval)}
           aria-label={`Back ${skipInterval} seconds`}
           title={`Back ${skipInterval}s`}
-          className="rounded-lg px-1.5 py-1 font-mono text-[11px] text-white transition-colors hover:text-rose-400"
+          className="rounded-lg px-1.5 py-1 font-mono text-[11px] text-white transition-colors hover:text-emerald-300"
         >
           −{skipInterval}s
         </button>
@@ -142,7 +142,7 @@ export default function ControlBar({
           onClick={() => onNudge(skipInterval)}
           aria-label={`Forward ${skipInterval} seconds`}
           title={`Forward ${skipInterval}s`}
-          className="rounded-lg px-1.5 py-1 font-mono text-[11px] text-white transition-colors hover:text-rose-400"
+          className="rounded-lg px-1.5 py-1 font-mono text-[11px] text-white transition-colors hover:text-emerald-300"
         >
           +{skipInterval}s
         </button>
@@ -164,7 +164,7 @@ export default function ControlBar({
             value={muted ? 0 : volume}
             onChange={(e) => onVolume(Number(e.target.value))}
             aria-label="Volume"
-            className="w-0 cursor-pointer accent-rose-600 transition-all group-hover/vol:w-20 focus:w-20"
+            className="w-0 cursor-pointer accent-emerald-500 transition-all group-hover/vol:w-20 focus:w-20"
           />
         </div>
 

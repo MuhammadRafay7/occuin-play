@@ -55,7 +55,7 @@ export default function SettingsMenu({
       onClick={onClick}
       className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-left text-xs text-zinc-200 transition-colors hover:bg-white/10"
     >
-      <Check className={`h-3.5 w-3.5 ${active ? 'text-rose-500' : 'text-transparent'}`} />
+      <Check className={`h-3.5 w-3.5 ${active ? 'text-emerald-400' : 'text-transparent'}`} />
       {label}
     </button>
   );
@@ -90,7 +90,7 @@ export default function SettingsMenu({
             className="flex w-full items-center justify-between gap-6 rounded-lg px-3 py-2 text-left text-xs text-zinc-200 transition-colors hover:bg-white/10"
           >
             <span>Night mode audio</span>
-            <span className={preferences.audioBoost ? 'text-rose-500' : 'text-zinc-400'}>
+            <span className={preferences.audioBoost ? 'text-emerald-400' : 'text-zinc-400'}>
               {preferences.audioBoost ? 'On' : 'Off'}
             </span>
           </button>
@@ -100,7 +100,7 @@ export default function SettingsMenu({
             className="flex w-full items-center justify-between gap-6 rounded-lg px-3 py-2 text-left text-xs text-zinc-200 transition-colors hover:bg-white/10"
           >
             <span>Autoplay next</span>
-            <span className={preferences.autoPlayNext ? 'text-rose-500' : 'text-zinc-400'}>
+            <span className={preferences.autoPlayNext ? 'text-emerald-400' : 'text-zinc-400'}>
               {preferences.autoPlayNext ? 'On' : 'Off'}
             </span>
           </button>
@@ -110,7 +110,7 @@ export default function SettingsMenu({
             className="flex w-full items-center justify-between gap-6 rounded-lg px-3 py-2 text-left text-xs text-zinc-200 transition-colors hover:bg-white/10"
           >
             <span>Auto-skip intro</span>
-            <span className={preferences.autoSkipIntro ? 'text-rose-500' : 'text-zinc-400'}>
+            <span className={preferences.autoSkipIntro ? 'text-emerald-400' : 'text-zinc-400'}>
               {preferences.autoSkipIntro ? 'On' : 'Off'}
             </span>
           </button>
@@ -169,7 +169,7 @@ export default function SettingsMenu({
               step={10}
               value={preferences.subtitleStyle.fontSize}
               onChange={(e) => updateSubtitleStyle({ fontSize: Number(e.target.value) })}
-              className="w-full accent-rose-600"
+              className="w-full accent-emerald-500"
             />
           </label>
 
@@ -184,7 +184,7 @@ export default function SettingsMenu({
               step={5}
               value={preferences.subtitleStyle.backgroundOpacity}
               onChange={(e) => updateSubtitleStyle({ backgroundOpacity: Number(e.target.value) })}
-              className="w-full accent-rose-600"
+              className="w-full accent-emerald-500"
             />
           </label>
 
@@ -199,7 +199,7 @@ export default function SettingsMenu({
               step={10}
               value={preferences.subtitleStyle.verticalOffset}
               onChange={(e) => updateSubtitleStyle({ verticalOffset: Number(e.target.value) })}
-              className="w-full accent-rose-600"
+              className="w-full accent-emerald-500"
             />
           </label>
 

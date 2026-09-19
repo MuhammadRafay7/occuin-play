@@ -22,7 +22,7 @@ export default function GlobalError({
       </p>
       <button
         onClick={reset}
-        className="flex items-center gap-2 rounded-xl bg-rose-600 px-5 py-2.5 text-xs font-semibold text-white transition-colors hover:bg-rose-500"
+        className="flex items-center gap-2 rounded-xl bg-emerald-500 px-5 py-2.5 text-xs font-semibold text-white transition-colors hover:bg-emerald-400"
       >
         <RotateCcw className="h-3.5 w-3.5" />
         Try again

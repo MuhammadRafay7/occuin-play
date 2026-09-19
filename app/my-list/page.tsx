@@ -17,14 +17,14 @@ export default function MyListPage() {
   const visible = tab === 'liked' ? items.filter((i) => i.liked) : items;
 
   return (
-    <main className="mx-auto max-w-[1600px] space-y-8 px-4 py-8 sm:px-6">
+    <main className="mx-auto max-w-[1600px] space-y-8 px-4 py-10 sm:px-6">
       <header className="space-y-3">
-        <h1 className="flex items-center gap-2 text-2xl font-black tracking-tight text-white sm:text-3xl">
-          <Bookmark className="h-6 w-6 text-rose-500" />
+        <h1 className="flex items-center gap-2 text-3xl font-black tracking-tight text-white sm:text-4xl">
+          <Bookmark className="h-6 w-6 text-emerald-400" />
           My List
         </h1>
 
-        <div className="flex gap-1 rounded-xl border border-zinc-800 bg-[#18181b] p-1">
+        <div className="inline-flex gap-1 rounded-full border border-white/10 bg-black/40 p-1.5 backdrop-blur-xl">
           {(
             [
               { id: 'all' as const, label: `Saved (${items.length})` },
@@ -34,8 +34,8 @@ export default function MyListPage() {
             <button
               key={id}
               onClick={() => setTab(id)}
-              className={`rounded-lg px-4 py-2 text-xs font-semibold transition-colors ${
-                tab === id ? 'bg-rose-600 text-white' : 'text-zinc-400 hover:text-white'
+              className={`rounded-full px-4 py-2 text-[13px] font-medium transition-colors ${
+                tab === id ? 'bg-white text-[#04120b]' : 'text-zinc-300 hover:bg-white/10 hover:text-white'
               }`}
             >
               {label}
@@ -54,7 +54,7 @@ export default function MyListPage() {
           </p>
           <Link
             href="/"
-            className="mt-4 inline-block rounded-xl bg-rose-600 px-5 py-2.5 text-xs font-bold text-white transition-colors hover:bg-rose-500"
+            className="mt-4 inline-block rounded-xl bg-emerald-500 px-5 py-2.5 text-xs font-bold text-white transition-colors hover:bg-emerald-400"
           >
             Browse catalog
           </Link>
@@ -65,9 +65,9 @@ export default function MyListPage() {
             <div key={`${item.mediaType}-${item.tmdbId}`} className="group/item relative">
               <Link
                 href={`/watch/${item.mediaType}/${item.tmdbId}`}
-                className="block overflow-hidden rounded-xl border border-zinc-800/80 bg-[#18181b] transition-all group-hover/item:border-zinc-700"
+                className="block overflow-hidden rounded-xl border border-zinc-800/80 bg-[#0a1f14] transition-all group-hover/item:border-zinc-700"
               >
-                <div className="relative aspect-[2/3] bg-[#09090b]">
+                <div className="relative aspect-[2/3] bg-[#04120b]">
                   {item.posterPath ? (
                     <Image
                       src={`https://image.tmdb.org/t/p/w500${item.posterPath}`}
@@ -83,13 +83,13 @@ export default function MyListPage() {
                   )}
 
                   <div className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 transition-opacity group-hover/item:opacity-100">
-                    <span className="flex h-10 w-10 items-center justify-center rounded-full bg-rose-600 shadow-lg">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-500 shadow-lg">
                       <Play className="ml-0.5 h-4 w-4 fill-white text-white" />
                     </span>
                   </div>
 
                   {item.liked && (
-                    <Heart className="absolute left-2 top-2 h-4 w-4 fill-rose-500 text-rose-500 drop-shadow" />
+                    <Heart className="absolute left-2 top-2 h-4 w-4 fill-emerald-400 text-emerald-400 drop-shadow" />
                   )}
                 </div>
               </Link>

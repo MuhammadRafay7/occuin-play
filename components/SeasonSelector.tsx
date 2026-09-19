@@ -47,7 +47,7 @@ export default function SeasonSelector({
             id="season-select"
             value={selectedSeason}
             onChange={(e) => onSeasonChange(Number(e.target.value))}
-            className="w-full cursor-pointer appearance-none rounded-xl border border-zinc-700 bg-zinc-800 px-4 py-2.5 pr-10 text-sm font-semibold text-white transition-all focus:border-rose-600 focus:outline-none focus:ring-1 focus:ring-rose-600"
+            className="w-full cursor-pointer appearance-none rounded-xl border border-zinc-700 bg-zinc-800 px-4 py-2.5 pr-10 text-sm font-semibold text-white transition-all focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
           >
             {seasons.map((season) => (
               <option key={season.id} value={season.season_number}>
