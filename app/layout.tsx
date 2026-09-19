@@ -28,6 +28,11 @@ export const metadata: Metadata = {
   manifest: '/manifest.webmanifest',
   applicationName: SITE_NAME,
   appleWebApp: { capable: true, title: SITE_NAME, statusBarStyle: 'black-translucent' },
+  icons: {
+    icon: [{ url: '/icon.svg', type: 'image/svg+xml' }],
+    shortcut: ['/icon.svg'],
+    apple: ['/icon.svg'],
+  },
   alternates: { canonical: '/' },
   openGraph: {
     type: 'website',
